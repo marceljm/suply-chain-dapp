@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
+
 pragma solidity ^0.8.15;
 
 /// Provides basic authorization control
@@ -9,7 +10,7 @@ contract Ownable {
     event TransferOwnership(address indexed oldOwner, address indexed newOwner);
 
     /// Assign the contract to an owner
-    constructor () internal {
+    constructor() {
         origOwner = msg.sender;
         emit TransferOwnership(address(0), origOwner);
     }

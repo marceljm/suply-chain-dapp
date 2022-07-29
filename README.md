@@ -20,13 +20,26 @@ export NODE_OPTIONS=--openssl-legacy-provider
 truffle init
 ```
 
-### Fix outdated code
-1. Find and replace `pragma solidity...` by `pragma solidity ^0.8.15;`
-2. Add `// SPDX-License-Identifier: UNLICENSED` before `pragma solidity...`
-3. Add `memory` between the `string` and the parameter name in `function` declarations and `returns`
-
-### Compile
+### Try to compile
 ```
 truffle develop
 compile
 ```
+
+### Fix obsolete code
+1. Find and replace `pragma solidity...` by `pragma solidity ^0.8.15;`
+2. Add `// SPDX-License-Identifier: UNLICENSED` before `pragma solidity...`
+3. Replace `string` by `string memory` in `function` declarations and `returns`
+4. Remove `public` and `internal` from `constructor`
+5. `transfer()` and `selfdestruct()` are not available for `address`, but for `address payable` only
+6. if necessary, use `payable()` to convert an `address` to `address payable` 
+7. comment unused variables
+8. convert a few functions from `view` to `pure`
+
+
+### Compile
+```
+truffle compile
+```
+
+
