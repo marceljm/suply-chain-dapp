@@ -35,6 +35,7 @@ compile
 6. if necessary, use `payable()` to convert an `address` to `address payable` 
 7. comment unused variables
 8. convert a few functions from `view` to `pure`
+9. replace `toWei` by `utils.toWei` and convert the values using `String()`
 
 
 ### Compile
@@ -42,4 +43,9 @@ compile
 truffle compile
 ```
 
+### Migrate
+```
+./ganache-2.5.4-linux-x86_64.AppImage
+truffle migrate
+```
 
