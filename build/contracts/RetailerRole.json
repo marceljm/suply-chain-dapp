@@ -23,8 +23,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -898,7 +897,7 @@
   "sourceMap": "196:1083:4:-:0;;;459:16;;;;;;;;;;196:1083;;;;;;",
   "deployedSourceMap": "196:1083:4:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;669:66;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;800:60;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;932:37;;;:::i;:::-;;669:66;727:4;669:66;;;:::o;800:60::-;;:::o;932:37::-;:::o;88:117:8:-;197:1;194;187:12;334:126;371:7;411:42;404:5;400:54;389:65;;334:126;;;:::o;466:96::-;503:7;532:24;550:5;532:24;:::i;:::-;521:35;;466:96;;;:::o;568:122::-;641:24;659:5;641:24;:::i;:::-;634:5;631:35;621:63;;680:1;677;670:12;621:63;568:122;:::o;696:139::-;742:5;780:6;767:20;758:29;;796:33;823:5;796:33;:::i;:::-;696:139;;;;:::o;841:329::-;900:6;949:2;937:9;928:7;924:23;920:32;917:119;;;955:79;;:::i;:::-;917:119;1075:1;1100:53;1145:7;1136:6;1125:9;1121:22;1100:53;:::i;:::-;1090:63;;1046:117;841:329;;;;:::o;1176:90::-;1210:7;1253:5;1246:13;1239:21;1228:32;;1176:90;;;:::o;1272:109::-;1353:21;1368:5;1353:21;:::i;:::-;1348:3;1341:34;1272:109;;:::o;1387:210::-;1474:4;1512:2;1501:9;1497:18;1489:26;;1525:65;1587:1;1576:9;1572:17;1563:6;1525:65;:::i;:::-;1387:210;;;;:::o",
   "source": "// SPDX-License-Identifier: UNLICENSED\n\npragma solidity ^0.8.15;\n\n// Import the library 'Roles'\nimport \"./Roles.sol\";\n\n// Define a contract 'RetailerRole' to manage this role - add, remove, check\ncontract RetailerRole {\n    // Define 2 events, one for Adding, and other for Removing\n\n    // Define a struct 'retailers' by inheriting from 'Roles' library, struct Role\n\n    // In the constructor make the address that deploys this contract the 1st retailer\n    constructor() {}\n\n    // Define a modifier that checks to see if msg.sender has the appropriate role\n    modifier onlyRetailer() {\n        _;\n    }\n\n    // Define a function 'isRetailer' to check this role\n    function isRetailer(address account) public view returns (bool) {}\n\n    // Define a function 'addRetailer' that adds this role\n    function addRetailer(address account) public onlyRetailer {}\n\n    // Define a function 'renounceRetailer' to renounce this role\n    function renounceRetailer() public {}\n\n    // Define an internal function '_addRetailer' to add this role, called by 'addRetailer'\n    function _addRetailer(address account) internal {}\n\n    // Define an internal function '_removeRetailer' to remove this role, called by 'removeRetailer'\n    function _removeRetailer(address account) internal {}\n}\n",
-  "sourcePath": "/home/marceljm/blockchain-projects/suply-chain-dapp/contracts/coffeeaccesscontrol/RetailerRole.sol",
+  "sourcePath": "/home/marceljm/blockchain-projects/supply-chain-dapp/contracts/coffeeaccesscontrol/RetailerRole.sol",
   "ast": {
     "absolutePath": "project:/contracts/coffeeaccesscontrol/RetailerRole.sol",
     "exportedSymbols": {
@@ -1352,8 +1351,7 @@
     }
   },
   "schemaVersion": "3.4.8",
-  "updatedAt": "2022-07-29T02:26:34.175Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-07-29T19:49:53.036Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

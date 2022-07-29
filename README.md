@@ -37,6 +37,9 @@ compile
 8. convert a few functions from `view` to `pure`
 9. replace `toWei` by `utils.toWei` and convert the values using `String()`
 
+### Complete the functions code
+
+- SupplyChain.sol
 
 ### Compile
 ```

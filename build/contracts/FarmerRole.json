@@ -49,8 +49,7 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function",
-      "constant": true
+      "type": "function"
     },
     {
       "inputs": [
@@ -924,7 +923,7 @@
   "sourceMap": "193:1549:3:-:0;;;613:53;;;;;;;;;;637:22;648:10;637;;;:22;;:::i;:::-;193:1549;;1393:118;1449:20;1461:7;1449;:11;;;;;;:20;;;;:::i;:::-;1496:7;1484:20;;;;;;;;;;;;1393:118;:::o;299:181:5:-;394:1;375:21;;:7;:21;;;367:30;;;;;;416:18;420:4;426:7;416:3;;;:18;;:::i;:::-;415:19;407:28;;;;;;469:4;446;:11;;:20;458:7;446:20;;;;;;;;;;;;;;;;:27;;;;;;;;;;;;;;;;;;299:181;;:::o;826:190::-;922:4;969:1;950:21;;:7;:21;;;942:30;;;;;;989:4;:11;;:20;1001:7;989:20;;;;;;;;;;;;;;;;;;;;;;;;;982:27;;826:190;;;;:::o;193:1549:3:-;;;;;;;",
   "deployedSourceMap": "193:1549:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1064:90;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;1224:75;;;:::i;:::-;;895:106;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;1064:90;795:20;804:10;795:8;:20::i;:::-;787:29;;;;;;1128:19:::1;1139:7;1128:10;:19::i;:::-;1064:90:::0;:::o;1224:75::-;1267:25;1281:10;1267:13;:25::i;:::-;1224:75::o;895:106::-;951:4;974:20;986:7;974;:11;;:20;;;;:::i;:::-;967:27;;895:106;;;:::o;299:181:5:-;394:1;375:21;;:7;:21;;;367:30;;;;;;416:18;420:4;426:7;416:3;:18::i;:::-;415:19;407:28;;;;;;469:4;446;:11;;:20;458:7;446:20;;;;;;;;;;;;;;;;:27;;;;;;;;;;;;;;;;;;299:181;;:::o;1393:118:3:-;1449:20;1461:7;1449;:11;;:20;;;;:::i;:::-;1496:7;1484:20;;;;;;;;;;;;1393:118;:::o;1614:126::-;1673:23;1688:7;1673;:14;;:23;;;;:::i;:::-;1725:7;1711:22;;;;;;;;;;;;1614:126;:::o;826:190:5:-;922:4;969:1;950:21;;:7;:21;;;942:30;;;;;;989:4;:11;;:20;1001:7;989:20;;;;;;;;;;;;;;;;;;;;;;;;;982:27;;826:190;;;;:::o;554:184::-;652:1;633:21;;:7;:21;;;625:30;;;;;;673:18;677:4;683:7;673:3;:18::i;:::-;665:27;;;;;;726:5;703:4;:11;;:20;715:7;703:20;;;;;;;;;;;;;;;;:28;;;;;;;;;;;;;;;;;;554:184;;:::o;88:117:8:-;197:1;194;187:12;334:126;371:7;411:42;404:5;400:54;389:65;;334:126;;;:::o;466:96::-;503:7;532:24;550:5;532:24;:::i;:::-;521:35;;466:96;;;:::o;568:122::-;641:24;659:5;641:24;:::i;:::-;634:5;631:35;621:63;;680:1;677;670:12;621:63;568:122;:::o;696:139::-;742:5;780:6;767:20;758:29;;796:33;823:5;796:33;:::i;:::-;696:139;;;;:::o;841:329::-;900:6;949:2;937:9;928:7;924:23;920:32;917:119;;;955:79;;:::i;:::-;917:119;1075:1;1100:53;1145:7;1136:6;1125:9;1121:22;1100:53;:::i;:::-;1090:63;;1046:117;841:329;;;;:::o;1176:90::-;1210:7;1253:5;1246:13;1239:21;1228:32;;1176:90;;;:::o;1272:109::-;1353:21;1368:5;1353:21;:::i;:::-;1348:3;1341:34;1272:109;;:::o;1387:210::-;1474:4;1512:2;1501:9;1497:18;1489:26;;1525:65;1587:1;1576:9;1572:17;1563:6;1525:65;:::i;:::-;1387:210;;;;:::o",
   "source": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.15;\n\n// Import the library 'Roles'\nimport \"./Roles.sol\";\n\n// Define a contract 'FarmerRole' to manage this role - add, remove, check\ncontract FarmerRole {\n    using Roles for Roles.Role;\n\n    // Define 2 events, one for Adding, and other for Removing\n    event FarmerAdded(address indexed account);\n    event FarmerRemoved(address indexed account);\n\n    // Define a struct 'farmers' by inheriting from 'Roles' library, struct Role\n    Roles.Role private farmers;\n\n    // In the constructor make the address that deploys this contract the 1st farmer\n    constructor() {\n        _addFarmer(msg.sender);\n    }\n\n    // Define a modifier that checks to see if msg.sender has the appropriate role\n    modifier onlyFarmer() {\n        require(isFarmer(msg.sender));\n        _;\n    }\n\n    // Define a function 'isFarmer' to check this role\n    function isFarmer(address account) public view returns (bool) {\n        return farmers.has(account);\n    }\n\n    // Define a function 'addFarmer' that adds this role\n    function addFarmer(address account) public onlyFarmer {\n        _addFarmer(account);\n    }\n\n    // Define a function 'renounceFarmer' to renounce this role\n    function renounceFarmer() public {\n        _removeFarmer(msg.sender);\n    }\n\n    // Define an internal function '_addFarmer' to add this role, called by 'addFarmer'\n    function _addFarmer(address account) internal {\n        farmers.add(account);\n        emit FarmerAdded(account);\n    }\n\n    // Define an internal function '_removeFarmer' to remove this role, called by 'removeFarmer'\n    function _removeFarmer(address account) internal {\n        farmers.remove(account);\n        emit FarmerRemoved(account);\n    }\n}\n",
-  "sourcePath": "/home/marceljm/blockchain-projects/suply-chain-dapp/contracts/coffeeaccesscontrol/FarmerRole.sol",
+  "sourcePath": "/home/marceljm/blockchain-projects/supply-chain-dapp/contracts/coffeeaccesscontrol/FarmerRole.sol",
   "ast": {
     "absolutePath": "project:/contracts/coffeeaccesscontrol/FarmerRole.sol",
     "exportedSymbols": {
@@ -2142,8 +2141,7 @@
     }
   },
   "schemaVersion": "3.4.8",
-  "updatedAt": "2022-07-29T02:26:34.170Z",
-  "networkType": "ethereum",
+  "updatedAt": "2022-07-29T19:49:53.034Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
