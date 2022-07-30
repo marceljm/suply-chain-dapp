@@ -155,15 +155,28 @@ contract('SupplyChain', function (accounts) {
             eventEmitted = true
         })
 
+        // Get balances before the transaction
+        let balanceOfDistributorBefore = await web3.eth.getBalance(distributorID);
+        let balanceOfFarmerBefore = await web3.eth.getBalance(originFarmerID);
+
         // Mark an item as Sold by calling function buyItem()
-        await supplyChain.buyItem(upc)
+        await supplyChain.buyItem(upc, { from: distributorID, value: productPrice });
 
         // Retrieve the just now saved item from blockchain by calling function fetchItem()
         const resultBufferOne = await supplyChain.fetchItemBufferOne.call(upc)
         const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc)
 
         // Verify the result set
+        assert.equal(resultBufferOne[2], distributorID, 'Error: Missing or Invalid ownerID')
+        assert.equal(resultBufferTwo[6], distributorID, 'Error: Missing or Invalid distributorID')
+        assert.equal(resultBufferTwo[5], 4, 'Error: Invalid item State')
+        assert.equal(eventEmitted, true, 'Invalid event emitted')
 
+        // verify balances
+        let balanceOfDistributorAfter = await web3.eth.getBalance(distributorID);
+        let balanceOfFarmerAfter = await web3.eth.getBalance(originFarmerID);
+        assert.equal(Number(balanceOfFarmerAfter), Number(balanceOfFarmerBefore) + Number(productPrice));
+        assert.isBelow(Number(balanceOfDistributorAfter), Number(balanceOfDistributorBefore) - Number(productPrice));
     })
 
     // 6th Test
