@@ -2,7 +2,7 @@
 
 ## Write Up
 
-### Project write-up - UML
+### UML
 
 > Project write-up include the following UML diagrams: Activity, Sequence, State and Classes (Data Model)
 
@@ -20,19 +20,19 @@
 
 ![Class diagram](https://github.com/marceljm/supply-chain-dapp/blob/main/uml/class.png)
 
-### Project write-up - Libraries
+### Libraries
 
 > If libraries are used, the project write-up discusses why these libraries were adopted.
 
 No libraries used.
 
-### Project write-up - IPFS
+### IPFS
 
 > If IPFS is used, the project write-up discusses how IPFS is used in this project.
 
 IPFS not used.
 
-### General Write Up
+### General
 
 > A general write up exists to items like steps and contracts address. 
 
@@ -50,31 +50,31 @@ IPFS not used.
 
 > Ownable.sol has required functions that establish owner and the transfer of ownership.
 
-<-------------- TODO ----------------
+:white_check_mark:
 
 ### ConsumerRole.sol contains required functions that manage the consumer role.
 
 > ConsumerRole.sol has required functions that manage the consumer role.
 
-<-------------- TODO ----------------
+:white_check_mark:
 
 ### RetailerRole.sol contains required functions that manage the consumer role.
 
 > RetailerRole.sol has required functions that manage the consumer role.
 
-<-------------- TODO ----------------
+:white_check_mark:
 
 ### DistributorRole.sol contains required functions that manage the consumer role.
 
 > DistributorRole.sol has required functions that manage the consumer role.
 
-<-------------- TODO ----------------
+:white_check_mark:
 
 ### Additional roles implemented are integrated correctly. 
 
 > Student has implemented additional roles correctly. 
 
-<-------------- TODO ----------------
+:white_check_mark:
 
 ## Test smart contract code coverage
 
