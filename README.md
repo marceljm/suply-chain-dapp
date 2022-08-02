@@ -24,7 +24,7 @@
 
 > If libraries are used, the project write-up discusses why these libraries were adopted.
 
-No libraries used.
+<-------------- TODO ----------------
 
 ### IPFS
 
@@ -113,7 +113,9 @@ Tests implemented in `TestSupplychain.js`.
 ### Install Truffle
 ```
 sudo npm install -g truffle
-truffle version
+npm install --save  @truffle/hdwallet-provider
+npm install web3 --save
+npm install @truffle/contract --save
 ```
 
 ### Prevents `Error: error:0308010C:digital envelope routines::unsupported`
@@ -162,3 +164,5 @@ truffle test
 truffle migrate
 ```
 
+### Run
+npm run dev
