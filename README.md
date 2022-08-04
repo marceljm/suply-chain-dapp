@@ -24,7 +24,8 @@
 
 > If libraries are used, the project write-up discusses why these libraries were adopted.
 
-<-------------- TODO ----------------
+- web3.js: collection of libraries that allow you to interact with a local or remote ethereum node using HTTP, IPC or WebSocket.
+- truffle: a world-class development environment, testing framework and asset pipeline for blockchains using the Ethereum Virtual Machine (EVM), aiming to make life as a developer easier.
 
 ### IPFS
 
@@ -36,7 +37,14 @@ IPFS not used.
 
 > A general write up exists to items like steps and contracts address. 
 
-<-------------- TODO ----------------
+Contract addresses:
+- FarmerRole: 0xCe39011C2A0261A85768D8Dd1aC6A0d40cb69b0f
+- DistributorRole: 0x26E2Cc4BdB3798956Baa6CBCdc55617A707D78e3
+- RetailerRole: 0x6087469d80921E74f285120C349195EF2726e203
+- ConsumerRole: 0x4b400f80F29ccb841857C8Fd366dBFb63229A0fB
+- SupplyChain: 0x9735cee8A54Cee13DbEd7F77F64B43A4032e2A6D
+
+All the steps are listed on the `Roadmap` section below.
 
 ## Write smart contracts with functions
 
@@ -90,13 +98,17 @@ Tests implemented in `TestSupplychain.js`.
 
 > Smart contract is deployed on on the Ethereum RINKEBY test network.
 
-<-------------- TODO ----------------
+```
+migrate --reset --network rinkeby
+```
 
 ### Project submission includes transaction ID and contract address
 
 > Project submission includes a document (.md, .txt) that includes Transaction ID and Contract address. Hint: You can view Transaction ID and Contract ID from a blockchain explorer (e.g. Etherscan). Example Contract ID: https://rinkeby.etherscan.io/address/0xfb0720c0715e68f80c0c0437c9c491abfed9e7ab#code
 
-<-------------- TODO ----------------
+- Transaction ID: 0xb254e409c6ca057df1febe3402b44535092594949662c8cd15fb44604c0b7af4
+- Contract Address: 0x9735cee8A54Cee13DbEd7F77F64B43A4032e2A6D
+- [Etherscan](https://rinkeby.etherscan.io/address/0x9735cee8A54Cee13DbEd7F77F64B43A4032e2A6D)
 
 ## Modify client code to interact with a smart contract
 
@@ -104,7 +116,7 @@ Tests implemented in `TestSupplychain.js`.
 
 > Front-end is configured to: Submit a product for shipment (farmer to the distributor, distributor to retailer, etc); Receive product from shipment; Validate the authenticity of the product.
 
-<-------------- TODO ----------------
+:white_check_mark:s
 
 ## Roadmap
 
@@ -147,22 +159,50 @@ compile
 10. and more...
 
 ### Write the missing code
+:white_check_mark:s
 
 ### Compile
 ```
-truffle compile
+truffle develop
+compile
 ```
 
 ### Test
 ```
-truffle test
+test
 ```
 
 ### Migrate
+Local:
 ```
-./ganache-2.5.4-linux-x86_64.AppImage
-truffle migrate
+migrate --reset
+```
+
+Rinkeby:
+```
+migrate --reset --network rinkeby
+```
+
+### Additional steps for Rinkeby
+
+- Create [faucets](https://rinkebyfaucet.com/) for all the accounts
+- Add your Infura key to `truffle-config.js`
+```
+const infuraKey = "<INFURA KEY>";
 ```
 
 ### Run
+```
 npm run dev
+```
+
+0. Open http://localhost:3000/
+1. Set `Current Owner ID` with the first account provided by Truffle (private network) or your Metamask account (Rinkeby)
+2. Set `Farmer ID`, `Distributor ID`, `Retailer ID` and `Consumer ID` with different accounts
+3. Set the other values (optional)
+4. Connected to the owner account, click on `Add Roles`
+5. Connected to the farmer account, click on `Harvest`, `Process`, `Pack` and `ForSale`
+6. Connected to the distributor account, click on `Buy` and `Ship`
+7. Connected to the retailer account, click on `Receive`
+8. Connected to the consumer account, click on `Purchase`
+9. Click on `Fetch Data 1` and `Fetch Data 2` to load the `Item Information`
