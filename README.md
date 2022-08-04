@@ -99,12 +99,13 @@ Tests implemented in `TestSupplychain.js`.
 > Smart contract is deployed on on the Ethereum RINKEBY test network.
 
 ```
+truffle develop
 migrate --reset --network rinkeby
 ```
 
 ### Project submission includes transaction ID and contract address
 
-> Project submission includes a document (.md, .txt) that includes Transaction ID and Contract address. Hint: You can view Transaction ID and Contract ID from a blockchain explorer (e.g. Etherscan). Example Contract ID: https://rinkeby.etherscan.io/address/0xfb0720c0715e68f80c0c0437c9c491abfed9e7ab#code
+> Project submission includes a document (.md, .txt) that includes Transaction ID and Contract address. Hint: You can view Transaction ID and Contract ID from a blockchain explorer (e.g. Etherscan). Example Contract ID: rinkeby.etherscan.io/address/0xfb0720c0715e68f80c0c0437c9c491abfed9e7ab#code
 
 - Transaction ID: 0xb254e409c6ca057df1febe3402b44535092594949662c8cd15fb44604c0b7af4
 - Contract Address: 0x9735cee8A54Cee13DbEd7F77F64B43A4032e2A6D
@@ -116,7 +117,7 @@ migrate --reset --network rinkeby
 
 > Front-end is configured to: Submit a product for shipment (farmer to the distributor, distributor to retailer, etc); Receive product from shipment; Validate the authenticity of the product.
 
-:white_check_mark:s
+:white_check_mark:
 
 ## Roadmap
 
@@ -159,7 +160,7 @@ compile
 10. and more...
 
 ### Write the missing code
-:white_check_mark:s
+:white_check_mark:
 
 ### Compile
 ```
